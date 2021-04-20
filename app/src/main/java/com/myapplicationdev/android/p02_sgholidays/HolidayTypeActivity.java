@@ -37,7 +37,7 @@ public class HolidayTypeActivity extends AppCompatActivity implements AdapterVie
         listView = findViewById(R.id.holiday_types_list_view);
 
         // Bridging
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, holidayTypes);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.holiday_type_list_item, holidayTypes);
         listView.setAdapter(arrayAdapter);
 
         // List View OnItem Click
@@ -67,21 +67,21 @@ public class HolidayTypeActivity extends AppCompatActivity implements AdapterVie
 
         // Secular Type Holidays
         ArrayList<Holiday> secularTypeHolidays = new ArrayList<>();
-        secularTypeHolidays.add(new Holiday(this, "New Year's Day", "1 January 2021", R.drawable.new_year));
-        secularTypeHolidays.add(new Holiday(this, "National Day", "9 August 2021", R.drawable.national_day));
-        secularTypeHolidays.add(new Holiday(this, "Labour Day", "1 May 2021", R.drawable.new_year));
+        secularTypeHolidays.add(new Holiday(this, "New Year's Day", "1 January", R.drawable.new_year, "New year, New you!"));
+        secularTypeHolidays.add(new Holiday(this, "National Day", "9 August", R.drawable.national_day, "We are Together as One Nation."));
+        secularTypeHolidays.add(new Holiday(this, "Labour Day", "1 May", R.drawable.labour_day, "Without Labor, Nothing Prospers."));
         holidayMap.put("Secular", secularTypeHolidays);
 
         // Ethnic & Religion Holidays
         ArrayList<Holiday> ethnicAndReligionHolidays = new ArrayList<>();
-        ethnicAndReligionHolidays.add(new Holiday(this, "Chinese New Year", "1 January 2021", R.drawable.cny));
-        ethnicAndReligionHolidays.add(new Holiday(this, "National Day", "12 - 13 February 2021", R.drawable.national_day));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Good Friday", "2 April 2021", R.drawable.good_friday));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Hari Raya Puasa", "13 May 2021", R.drawable.hari_raya_puasa));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Vesak Day", "26 May 2021", R.drawable.vesak_day));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Hari Raya Haji", "20 July 2021", R.drawable.hari_raya_haji));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Deepavali", "4 November 2021", R.drawable.deepavali));
-        ethnicAndReligionHolidays.add(new Holiday(this, "Christmas Day", "25 December 2021", R.drawable.christmas));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Chinese New Year", "12 - 13 February", R.drawable.cny, "Celebrate the Year of OX!"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Good Friday", "2 April", R.drawable.good_friday,
+                "Mercy, peace and love. May the grace and Lord surround and be with you on Good Friday. God so loved the world that He gave His only begotten son. – John 3:16"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Hari Raya Puasa", "13 May", R.drawable.hari_raya_puasa, "Hari Raya Puasa"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Vesak Day", "26 May", R.drawable.vesak_day, "Vesak Day"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Hari Raya Haji", "20 July", R.drawable.hari_raya_haji, "Hari Raya Haji"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Deepavali", "4 November", R.drawable.deepavali, "Deepavali"));
+        ethnicAndReligionHolidays.add(new Holiday(this, "Christmas Day", "25 December", R.drawable.christmas, "Merry Christmas!"));
         holidayMap.put("Ethnic & Religion", ethnicAndReligionHolidays);
 
         myData.setHolidayMap(holidayMap);
@@ -95,7 +95,6 @@ public class HolidayTypeActivity extends AppCompatActivity implements AdapterVie
         String selectedHolidayType = holidayTypes.get(position);
         intent.putExtra("Holiday Type", selectedHolidayType);
         startActivity(intent);
-
     }
 
 } // end of class

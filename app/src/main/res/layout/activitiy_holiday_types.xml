@@ -6,14 +6,26 @@
     tools:context=".HolidayTypeActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/yellow_light">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:paddingTop="25dp"
+        android:paddingHorizontal="15dp"
         android:text="Public Holiday Types"
-        style="@style/TextAppearance.MaterialComponents.Headline5"/>
+        style="@style/Title"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="20dp"
+        android:text="2021"
+        android:textColor="@color/purple_light"
+        style="@style/Title"/>
 
     <ListView
         android:id="@+id/holiday_types_list_view"

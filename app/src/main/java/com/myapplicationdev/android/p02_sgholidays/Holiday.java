@@ -10,11 +10,13 @@ public class Holiday {
     private String name;
     private String date;
     private Drawable imageDrawable;
+    private String message;
 
-    public Holiday(Context context, String name, String date, int drawableId) {
+    public Holiday(Context context, String name, String date, int drawableId, String message) {
         this.name = name;
         this.date = date;
         this.imageDrawable = ContextCompat.getDrawable(context, drawableId);
+        this.message = message;
     }
 
     public String getName() {
@@ -39,6 +41,14 @@ public class Holiday {
 
     public void setImageDrawable(Drawable imageDrawable) {
         this.imageDrawable = imageDrawable;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 } // end of class

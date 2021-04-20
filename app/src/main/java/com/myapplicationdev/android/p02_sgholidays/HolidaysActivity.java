@@ -5,15 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HolidaysActivity extends AppCompatActivity {
+public class HolidaysActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     private final static String TAG = "HolidayTypeActivity";
 
@@ -23,6 +28,7 @@ public class HolidaysActivity extends AppCompatActivity {
     // Views
     TextView titleTV;
     ListView listView;
+    ExtendedFloatingActionButton backFAB;
 
     // Holiday Array & Adapter
     ArrayList<Holiday> holidays = new ArrayList<>();
@@ -36,6 +42,10 @@ public class HolidaysActivity extends AppCompatActivity {
         // Init Views
         titleTV = findViewById(R.id.holiday_type_title_text_view);
         listView = findViewById(R.id.holiday_list_view);
+        backFAB = findViewById(R.id.back_to_types_fab);
+
+        listView.setOnItemClickListener(this::onItemClick);
+        backFAB.setOnClickListener(this::onClick);
 
         // Get Intent
         Intent intent = getIntent();
@@ -63,5 +73,22 @@ public class HolidaysActivity extends AppCompatActivity {
 
     } // <-- end of onCreate Method -->
 
+
+    // Floating Action Button is Clicked
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back_to_types_fab:
+                finish();
+                break;
+        }
+    }
+
+    // Item from List View is Clicked
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String message = holidays.get(position).getMessage();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
 } // end of class

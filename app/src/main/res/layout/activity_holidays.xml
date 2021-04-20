@@ -1,23 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HolidaysActivity"
-    android:orientation="vertical">
+    android:background="@color/yellow_light">
 
-    <TextView
-        android:id="@+id/holiday_type_title_text_view"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/yellow_light">
+
+        <TextView
+            android:id="@+id/holiday_type_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:paddingHorizontal="15dp"
+            android:paddingBottom="20dp"
+            android:text="Holiday Type"
+            style="@style/Title"/>
+
+        <ListView
+            android:id="@+id/holiday_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/back_to_types_fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:text="Holiday Type"
-        style="@style/TextAppearance.MaterialComponents.Headline5"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="start|bottom"
+        android:text="Types"
+       style="@style/fab"/>
 
-    <ListView
-        android:id="@+id/holiday_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
